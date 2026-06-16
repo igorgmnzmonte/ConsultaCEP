@@ -4,6 +4,11 @@ on:
   push:
     branches: [main]
 
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -22,21 +27,18 @@ jobs:
       - name: Build do projeto
         run: npm run build
 
-      - name: Upload artifact
+      - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './dist'
+          path: 'dist'
 
   deploy:
     needs: build
-    runs-on: ubuntu-latest
-    permissions:
-      pages: write
-      id-token: write
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
     steps:
-      - name: Deploy
+      - name: Deploy para GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
