@@ -1,45 +1,45 @@
-# Cadastro de Endereço com CEP (React)
+# 🏠 Cadastro de Endereço com CEP
 
-Exercício 1.3 — Requisição Assíncrona. Formulário de cadastro de endereço que
-preenche os campos automaticamente a partir do CEP, consultando a API pública
-[ViaCEP](https://viacep.com.br) de forma assíncrona.
+Um app bem tranquilo feito em React que busca seus dados de endereço automaticamente só digitando o CEP. A aplicação tira toda a informação tediosa de preencher formulário consultando a API pública do [ViaCEP](https://viacep.com.br).
 
-Enunciado: <https://ifpb.github.io/exercises/problems/web-script-address-cep-api/>
+👉 **Saiba mais:** [Enunciado do exercício](https://ifpb.github.io/exercises/problems/web-script-address-cep-api/)
 
-## Funcionalidades
+## ✨ O que funciona aqui
 
-- Consulta o CEP no ViaCEP ao sair do campo (`blur`).
-- Preenche automaticamente rua, bairro, cidade e estado.
-- Máscara `00000-000` no campo de CEP enquanto digita.
-- Validação: exibe **"O CEP informado é invalido."** para CEP mal formado ou
-  inexistente, destacando o campo.
-- Cancela requisições anteriores (`AbortController`) para evitar dados obsoletos.
+- 🔍 Busca o endereço automaticamente assim que você termina de digitar o CEP (8 dígitos)
+- 📝 Preenche rua, bairro, cidade e estado automáticamente
+- 🎭 Formata o CEP com máscara visual `00000-000` enquanto você digita
+- ❌ Mostra erro amigável quando o CEP é inválido ou não existe
+- ⚡ Cancela requisições antigas pra não ficar exibindo dados desatualizados
 
-## Stack
+## 🛠️ Tecnologias
 
-- [React 18](https://react.dev) + [Vite](https://vitejs.dev)
-- `fetch` nativo, sem dependências de rede extras.
+- [React 18](https://react.dev) + [Vite](https://vitejs.dev) — fast na live dev
+- `fetch` nativo, zero dependências de rede
 
-## Rodando localmente
+## 🚀 Como rodar
 
 ```bash
 npm install
-npm run dev      # ambiente de desenvolvimento
-npm run build    # gera a versão de produção em dist/
-npm run preview  # serve o build de produção localmente
+npm run dev      # roda em modo desenvolvimento (http://localhost:5173)
+npm run build    # cria a versão de produção em dist/
+npm run preview  # testa o build de produção localmente
 ```
 
-## Estrutura
+## 📁 Organização do código
 
 ```
 src/
-  App.jsx              # componente do formulário e estado
-  main.jsx             # bootstrap do React
-  index.css            # estilos
-  services/viaCep.js   # camada de acesso à API (isolada da UI)
+  App.jsx              # componente principal com o formulário
+  main.jsx             # entry point do React
+  index.css            # estilos da aplicação
+  services/viaCep.js   # camada da API (separada da UI)
 ```
 
-## Deploy (GitHub Pages)
+## 💻 Como usar
 
-O deploy é automático via GitHub Actions ([.github/workflows/deploy.yml](.github/workflows/deploy.yml))
-a cada push na branch `main`. Basta habilitar **Settings → Pages → Source: GitHub Actions**.
+1. Digite um CEP com 8 dígitos (ex: `01310100`)
+2. A máscara visual formata automaticamente: `01310-100`
+3. Assim que completa, a busca acontece e os campos se preenchem
+4. Se o CEP não existir, aparece um aviso vermelho
+5. Você pode editar qualquer campo manualmente depois se precisar
