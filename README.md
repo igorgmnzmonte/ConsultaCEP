@@ -2,8 +2,6 @@
 
 Um app bem tranquilo feito em React que busca seus dados de endereço automaticamente só digitando o CEP. A aplicação tira toda a informação tediosa de preencher formulário consultando a API pública do [ViaCEP](https://viacep.com.br).
 
-👉 **Saiba mais:** [Enunciado do exercício](https://ifpb.github.io/exercises/problems/web-script-address-cep-api/)
-
 ## ✨ O que funciona aqui
 
 - 🔍 Busca o endereço automaticamente assim que você termina de digitar o CEP (8 dígitos)
